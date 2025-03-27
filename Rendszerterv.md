@@ -4,20 +4,34 @@
 ## 2. Projektterv
 
 ### 2.1 Projektszerepkörök, felelőségek:
-
+  * Üzleti szereplő:
+	  -   Megrendelő:
+		  -  Herbák Marcell
      
 ### 2.2 Projektmunkások és felelőségek:
+   * Frontend és backend:
+     - Kiss Gergő Zsolt
+     - Zsiga Marcell
+   * Tesztelés:
+     - Kiss Gergő Zsolt
+     - Zsiga Marcell
   
      
 ### 2.3 Ütemterv:
 
 |Funkció                  | Feladat                                | Prioritás | Becslés (nap) | Aktuális becslés (nap) | Eltelt idő (nap) | Becsült idő (nap) |
 |-------------------------|----------------------------------------|-----------|---------------|------------------------|------------------|---------------------|
-|          |                       |          |              |                       |                 |                    |
+|Rendszerterv             |Megírás                                 |         1 |            10 |                     10 |                1 |                  10 |
+|Program                  |Prototípus elkészítése                  |         2 |            10 |                     10 |                1 |                  10 |
+|Program                  |Tesztelés                               |         3 |             5 |                      5 |                1 |                   5 |
 
 
 ### 2.4 Mérföldkövek:
-
+   *   04.15. Projekt elkezdése
+   *   04.15. Alap prototípus elkészítése
+   *   04.25. Végleges prototípus elkészítése
+   *   04.30. Tesztelés
+   *   05.07. Bemutatás és átadás
 
 ## 3. Üzleti folyamatok modellje
 
