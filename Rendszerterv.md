@@ -48,18 +48,25 @@ A "Mini Rulett" egy szórakoztató, interaktív játék, amely lehetőséget biz
 
 | ID | Megnevezés               | Leírás                                                                                                                                                                                   |
 |----|--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| |     |  |
+| K1 | Bejelentkezés/Regisztráció     | A felhasználó itt tud regisztrálni majd később bejelentkezni a profiljába                                                                                        |
+| K2 | Üdvözlő oldal             | A program elindításakor üdvözlő lap ami köszönti a felhasználót                                                                                                                                            |
+| K3 | Mini Rulett       | A Mini rulett játékban a felhasználó megteheti tétjét a kiválasztott színre és vagy nyer vagy veszít.                                                                                                                        |
+| K4 | Kapcsolat        | Fejlesztőkről néhány információ, hibabejelentés lehetősége |
 
  
 ### Nemfunkcionális követelmények
 
 | ID | Megnevezés                             | Leírás                                                                                                              |
 |----|----------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-|  |  |              |
+| K5 | Átlátható, könnyen kezelhető felület   | A felületek könnyen használhatóak, átláthatóak legyenek,hogy könnyen tudja bárki használni              |
+| K6 | Tervezési minták használata            | Az alkalmazás forráskódja tartalmazzon legalább 2 tervezési mintát. |
+
+ 
 
 
 ### Támogatott eszközök
 
+ * Bármely Java alkalmazás futtatásra képes eszköz amin Windows operációs rendszerrel rendelkezik.
 
 
 ## 5. Funkcionális terv
