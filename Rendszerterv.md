@@ -65,10 +65,16 @@ A "Mini Rulett" egy szórakoztató, interaktív játék, amely lehetőséget biz
 ## 5. Funkcionális terv
 
 ### 5.1 Rendszerszereplők
-
+ - Felhasználó
+   - Tétet tehet meg az általa kiválasztott színre
+ - "Gép"
+   - Generál egy színt
 
 ### 5.2 Menühierarchiák
-
+- Főoldal 
+- Bejelentkezés/Regisztráció
+- Mini Rulett
+- Kapcsolat
 
 ## 6. Fizikai környezet
 
