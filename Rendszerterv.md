@@ -137,3 +137,8 @@ A "Mini Rulett" egy szórakoztató, interaktív játék, amely lehetőséget biz
 
 
 ## 13. Karbantartási terv
+Fontos ellenőrzési szempontok:
+
+ * Az alkalmazás biztonságosan kezeli a kritikus információkat. Az érzékeny adatok mint például a bejelentkezési információk és a felhasználók személyes adatai csak a megfelelő jogosultsággal rendelkező felhasználók számára legyenek elérhetők.
+
+ * A felhasználói visszajelzéseket figyelembe kell venni. Ha valaki hibát jelez, azt a lehető leghamarabb ki kell javítani függetlenül attól, hogy az a működéssel vagy a megjelenéssel kapcsolatos.
