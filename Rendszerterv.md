@@ -114,6 +114,8 @@ A "Mini Rulett" egy szórakoztató, interaktív játék, amely lehetőséget biz
 
 
 ## 10. Implementációs terv
+A felhasználói felület (frontend) JavaFX-szel készül, míg a háttérrendszer (backend) Java alapú keretrendszeren fut. A programkód írásához elsősorban angol nyelvet használunk.
+Az adatbázis kezelését egy külön csomag végzi, amely összeköti a szervert az adatbázissal.A fejlesztéshez szükség van az IntelliJ fejlesztőkörnyezet telepítésére és megfelelő beállítására, a szükséges eszközökkel és bővítményekkel együtt.
 
 ## 11. Tesztterv
 
