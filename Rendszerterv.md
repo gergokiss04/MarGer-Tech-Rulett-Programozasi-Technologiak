@@ -37,9 +37,17 @@ A "Mini Rulett" egy szórakoztató, interaktív játék, amely lehetőséget biz
 ## 3. Üzleti folyamatok modellje
 
 ### 3.1 Üzleti szereplők
+Regisztráció vagy Bejelentkezés után lehet az alkalmazást használni. A felhasználók jögkörei megegyeznek
 
 
 ### 3.2 Üzleti folyamatok
+  - Átltalános folyamatok:
+    - Regisztráció a megfelelő adatok megadásával
+    - Bejelentkezés a regisztrációkor megadtott adatokkal
+    - Kilépés bármikor
+  - Roulett folyamatok:
+    - Tét megtétele
+    - Fekete, fehér vagy zöld megtippelése
 
 
 ## 4. Követelmények
@@ -86,31 +94,43 @@ A "Mini Rulett" egy szórakoztató, interaktív játék, amely lehetőséget biz
 ## 6. Fizikai környezet
 
 ### Vásárolt szoftverkomponensek, valamint esetleges külső rendszerek
+- Nincsenek megvásárolt szoftverkomponenseink, valamint nem használunk külső rendszereket
 
 ### Hardver topológia
+Az alkalmazás futtatásra olyan pc lesz alkalmas, ami Windows 10 vagy 11 operációs rendszert használ
 
 ### Fizikai alrendszerek
+- Kliens gépek: A követelményekben leírtaknak megfelelően Windows 10 vagy 11 operációs rendszerrel működő számítógépek.
+- Host: A háttérben zajló műveletek és az adatbázis itt található, illetve ezzel kommunkiál a kliens.
 
 ### Fejlesztő eszközök
+- XAMPP: MySQL
+- IntelliJ IDEA
+- VS Code
+
 
 
 
 ## 8. Architekturális terv
 
 ### Webszerver
+- XAMPP
 
 
 
 ### Adatbázis rendszer
+- Adatbázis rendszer, ami MySQL-lel működik.
 
 
 
 ### A program elérése, kezelése
-
+Szükséges XAMPP ami az adatbáziskapcsolatot segíti elő.
 
 
 
 ## 9. Adatbázis terv
+Az adatbázisban két táblával fogunk dolgozni. Az egyik a felhasználó nevét, jelszavát valamint az azonosítóját fogja tárolni, amit automatikusan fogunk generálni.
+A másik táblában szintén az azonosítót fogjuk tárolni, valamint a játékos aktuális zsetonjainak az összegét.
 
 
 ## 10. Implementációs terv
@@ -118,6 +138,9 @@ A felhasználói felület (frontend) JavaFX-szel készül, míg a háttérrendsz
 Az adatbázis kezelését egy külön csomag végzi, amely összeköti a szervert az adatbázissal.A fejlesztéshez szükség van az IntelliJ fejlesztőkörnyezet telepítésére és megfelelő beállítására, a szükséges eszközökkel és bővítményekkel együtt.
 
 ## 11. Tesztterv
+A tesztek elvégzésének célja, teljeskörűen megvizsgájuk a rendszert és minden hozzátartozó komponenst és jóvájagyásra kerüljön minden a rendszer által biztosított szolgáltatás. Minden fejlesztő végez majd teszteket és ezeknek eredményeit dokumnetáni is fogják.
+
+A tesztek során a szoftver működését vizsgáljuk minden lehetséges szempontból annak érdekében, hogy miinden eshetőségnél a megfelelő eredményt kapjuk.
 
 
 
@@ -127,15 +150,25 @@ Az adatbázis kezelését egy külön csomag végzi, amely összeköti a szerver
 
  | Teszteset      | Elvárt eredmény                                                                                            | 
  |----------------|------------------------------------------------------------------------------------------------------------| 
- |    |  |
+ |  Regisztráció  | A felhasználó sikeresen regisztrálni tudja magát, a szükséges adatok megadásával                           |
+ |  Bejelentkezés | A már a regisztrációnal megadatott adatok alapján a felhasznló sikeresen be tudjon jelentkezni             |
+ |  Fogadás       | Amennyiben a egyenlege lehetővé teszi, úgy az általa választott színre tudja megtenni a tippjét a szintén altala választott összeggel|
+ | Játék indítása | Megkezdődik a játék és az előzetesen leadott tipp alapján a felhasználó megtudja az eredményt és a zsetonjai is eszerint vaáltoznak  |
 
 
 ## 12. Telepítési terv
 
 **Fizikai telepítési terv**:
+- Internet kapcsolattal rendelkező, működő számítógépre van a felhasználónak szüksége.
+- A program sikeres működéséhez egy szerverre van szükség, melynek a megfelelő hálózathoz kell kapcsolódnia, hogy elérhetó legyen.
 
 
 **Szoftver telepítési terv**:
+- Windows 10 vagy 11 operációs rendszerre van szüksége a felhasználóknak mely kompatibilis az ilyen alkalmazásokkal
+- Szükség van adatbázisra, például MySQL-re:
+  - Ehhez a(z) XAMPP szoftver telepítése szükséges
+- Szabadon karbantarható, fejleszthető az alkalmazás a fejlesztők számára
+- Amennyiben minden szükséges beállítás megtörtént, az alkalmazás futtatható.
 
 
 ## 13. Karbantartási terv
