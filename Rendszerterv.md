@@ -131,6 +131,7 @@ Szükséges XAMPP ami az adatbáziskapcsolatot segíti elő.
 ## 9. Adatbázis terv
 Az adatbázisban két táblával fogunk dolgozni. Az egyik a felhasználó nevét, jelszavát valamint az azonosítóját fogja tárolni, amit automatikusan fogunk generálni.
 A másik táblában szintén az azonosítót fogjuk tárolni, valamint a játékos aktuális zsetonjainak az összegét.
+![dbterv](https://github.com/gergokiss04/MarGer-Tech-Rulett-Programozasi-Technologiak/blob/Docs/dbterv.png)
 
 
 ## 10. Implementációs terv
