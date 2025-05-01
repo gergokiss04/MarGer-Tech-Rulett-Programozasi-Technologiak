@@ -6,9 +6,18 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.rulettjavafx.LoginController" spacing="10" alignment="CENTER" prefWidth="300" prefHeight="200">
-    <Label text="Bejelentkezés" />
-    <TextField fx:id="usernameField" promptText="Felhasználónév" />
-    <TextField fx:id="passwordField" promptText="Jelszó" />
-    <Button text="Bejelentkezés" onAction="#onLoginButtonClick" />
+<VBox alignment="CENTER" prefHeight="319.0" prefWidth="414.0" spacing="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.example.rulettjavafx.LoginController">
+    <Label text="Bejelentkezés" translateY="-10.0" />
+    <TextField fx:id="usernameField" prefHeight="26.0" prefWidth="278.0" promptText="Felhasználónév" translateY="-10.0">
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
+      <VBox.margin>
+         <Insets left="50.0" right="50.0" />
+      </VBox.margin></TextField>
+    <TextField fx:id="passwordField" prefHeight="12.0" prefWidth="414.0" promptText="Jelszó" translateY="-10.0">
+      <VBox.margin>
+         <Insets left="50.0" right="50.0" />
+      </VBox.margin></TextField>
+    <Button onAction="#onLoginButtonClick" style="-fx-background-color: crimson;" text="Bejelentkezés" translateY="-10.0" />
 </VBox>
