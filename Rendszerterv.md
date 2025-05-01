@@ -30,8 +30,8 @@ A "Mini Rulett" egy szórakoztató, interaktív játék, amely lehetőséget biz
 ### 2.4 Mérföldkövek:
    *   04.15. Projekt elkezdése
    *   04.15. Alap prototípus elkészítése
-   *   04.25. Végleges prototípus elkészítése
-   *   04.30. Tesztelés
+   *   05.02. Végleges prototípus elkészítése
+   *   05.04. Tesztelés
    *   05.07. Bemutatás és átadás
 
 ## 3. Üzleti folyamatok modellje
@@ -140,7 +140,7 @@ Az adatbázis kezelését egy külön csomag végzi, amely összeköti a szerver
 ## 11. Tesztterv
 A tesztek elvégzésének célja, teljeskörűen megvizsgájuk a rendszert és minden hozzátartozó komponenst és jóvájagyásra kerüljön minden a rendszer által biztosított szolgáltatás. Minden fejlesztő végez majd teszteket és ezeknek eredményeit dokumnetáni is fogják.
 
-A tesztek során a szoftver működését vizsgáljuk minden lehetséges szempontból annak érdekében, hogy miinden eshetőségnél a megfelelő eredményt kapjuk.
+A tesztek során a szoftver működését vizsgáljuk minden lehetséges szempontból annak érdekében, hogy minden eshetőségnél a megfelelő eredményt kapjuk.
 
 
 
