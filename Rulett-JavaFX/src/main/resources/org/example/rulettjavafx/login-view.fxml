@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.rulettjavafx.LoginController" spacing="10" alignment="CENTER" prefWidth="300" prefHeight="200">
+    <Label text="Bejelentkezés" />
+    <TextField fx:id="usernameField" promptText="Felhasználónév" />
+    <TextField fx:id="passwordField" promptText="Jelszó" />
+    <Button text="Bejelentkezés" onAction="#onLoginButtonClick" />
+</VBox>
