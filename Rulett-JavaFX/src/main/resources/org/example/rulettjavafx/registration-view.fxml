@@ -6,15 +6,16 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.PasswordField?>
 <VBox alignment="CENTER" prefHeight="200" prefWidth="300" spacing="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.example.rulettjavafx.RegistrationController">
     <Label text="Regisztráció" />
     <TextField fx:id="usernameField" promptText="Felhasználónév">
       <VBox.margin>
          <Insets left="50.0" right="50.0" />
       </VBox.margin></TextField>
-    <TextField fx:id="passwordField" promptText="Jelszó">
+    <PasswordField fx:id="passwordField" promptText="Jelszó">
       <VBox.margin>
          <Insets left="50.0" right="50.0" />
-      </VBox.margin></TextField>
+      </VBox.margin></PasswordField>
     <Button onAction="#onRegisterButtonClick" style="-fx-background-color: crimson;" text="Regisztrál" textFill="WHITE" />
 </VBox>
