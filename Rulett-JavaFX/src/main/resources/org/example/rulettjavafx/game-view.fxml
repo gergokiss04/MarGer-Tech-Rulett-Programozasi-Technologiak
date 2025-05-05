@@ -25,7 +25,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Rectangle fx:id="redBet" arcHeight="5.0" arcWidth="5.0" fill="PALEVIOLETRED" height="30.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <Rectangle fx:id="redBet" arcHeight="5.0" arcWidth="5.0" fill="CRIMSON" height="30.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
              
             <Rectangle fx:id="blackBet" arcHeight="5.0" arcWidth="5.0" height="30.0" stroke="BLACK" strokeType="INSIDE" width="50.0" GridPane.columnIndex="1" />
             <Rectangle fx:id="greenBet" arcHeight="5.0" arcWidth="5.0" fill="GREEN" height="30.0" stroke="BLACK" strokeType="INSIDE" width="50.0" GridPane.columnIndex="2" />
@@ -54,7 +54,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Button mnemonicParsing="false" style="-fx-background-color: palevioletred;" text="Pörgetés" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
+      <Button mnemonicParsing="false" style="-fx-background-color: crimson;" text="Pörgetés" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
          <font>
             <Font size="14.0" />
          </font>
