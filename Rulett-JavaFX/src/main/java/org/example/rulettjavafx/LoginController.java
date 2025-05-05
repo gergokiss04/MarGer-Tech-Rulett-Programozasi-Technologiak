@@ -1,9 +1,13 @@
 package org.example.rulettjavafx;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -38,6 +42,7 @@ public class LoginController {
                 String storedPassword = rs.getString("password");
                 if (password.equals(storedPassword)) {
                     showAlert("Siker", "Sikeres bejelentkezés!", Alert.AlertType.INFORMATION);
+                    openGameView();
                 } else {
                     showAlert("Hiba", "Hibás felhasználónév vagy jelszó!", Alert.AlertType.ERROR);
                 }
@@ -53,6 +58,22 @@ public class LoginController {
         }
     }
 
+    private void openGameView() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("game-view.fxml"));
+            Scene gameViewScene = new Scene(loader.load());
+            Stage gameViewStage = new Stage();
+            gameViewStage.setTitle("Játék");
+            gameViewStage.setScene(gameViewScene);
+            gameViewStage.show();
+
+            Stage loginStage = (Stage) usernameField.getScene().getWindow();
+            loginStage.close();
+
+        } catch (IOException e) {
+            showAlert("Hiba", "Nem sikerült megnyitni a játékot: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
     private void showAlert(String title, String msg, Alert.AlertType type) {
         Alert alert = new Alert(type);
         alert.setTitle(title);
