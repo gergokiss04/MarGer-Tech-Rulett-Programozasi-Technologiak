@@ -42,8 +42,8 @@ public class GameController implements Initializable {
     @FXML
     private Text resultText;
 
-    @FXML
-    private void handleSpin{
+
+    private void handleSpin(){
         Integer guessedNumber = Integer.valueOf(numberChoiceBox.getValue());
         Colors guessedColor = Colors.valueOf(String.valueOf(colorsChoiceBox.getValue()));
         int drawnIndex = random.nextInt(rouletteNumbers.length);
