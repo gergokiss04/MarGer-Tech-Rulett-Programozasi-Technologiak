@@ -17,6 +17,8 @@ public class GameController implements Initializable {
                                                 20, 14, 31, 9, 22, 18,
                                                 29, 7, 28, 12, 35, 3, 26};
 
+    String[] rouletteColors = new String[]{"PIROS", "FEKETE", "ZÖLD"};
+
     int placedBet;
     final double correctNumberBet = 2.25;
     final double correctColorBet = 1.5;
@@ -34,7 +36,7 @@ public class GameController implements Initializable {
     private final Random random = new Random();
 
     @FXML
-    private ChoiceBox<Colors> colorsChoiceBox;
+    private ChoiceBox<String> colorsChoiceBox;
 
     @FXML
     private Text coinAmount;
@@ -45,24 +47,24 @@ public class GameController implements Initializable {
 
     private void handleSpin(){
         Integer guessedNumber = Integer.valueOf(numberChoiceBox.getValue());
-        Colors guessedColor = Colors.valueOf(String.valueOf(colorsChoiceBox.getValue()));
-        int drawnIndex = random.nextInt(rouletteNumbers.length);
+        String guessedColor = colorsChoiceBox.getValue();
+        int drawnIndex = random.nextInt(0, 39);
         int drawnNumber = rouletteNumbers[drawnIndex];
         String drawnColor;
 
-        if (drawnIndex % 2 == 0){
-            drawnColor = String.valueOf(Colors.PIROS);
-        } else if ((drawnIndex % 2 != 0) && (drawnIndex != 0)) {
-            drawnColor = String.valueOf(Colors.FEKETE);
+        if (drawnIndex == 0){
+            drawnColor = rouletteColors[2];
+        } else if ((drawnIndex % 2 == 0)) {
+            drawnColor = rouletteColors[0];
         }else {
-            drawnColor = String.valueOf(Colors.ZÖLD);
+            drawnColor = rouletteColors[1];
         }
 
-        if (guessedNumber.equals(drawnNumber)) {
+        if (guessedNumber.equals(drawnNumber) && guessedColor.equals(drawnColor)) {
             resultText.setText("Gratulálunk! Nyertél! Kisorsolt szám: " + drawnNumber);
         } else if (guessedColor.equals(drawnColor)) {
             resultText.setText("Gratulálunk! Nyertél! Kisorsolt szám: " + drawnNumber);
-        } else if (guessedNumber.equals(drawnNumber) || guessedColor.equals(drawnColor)) {
+        } else if (guessedNumber.equals(drawnNumber)) {
             resultText.setText("Gratulálunk! Nyertél! Kisorsolt szám: " + drawnNumber);
         } else {
             resultText.setText("Sajnálom, nem nyertél. Kisorsolt szám: " + drawnNumber);
@@ -74,7 +76,7 @@ public class GameController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         numberChoiceBox.getItems().addAll(numbers);
-        colorsChoiceBox.getItems().addAll(Colors.values());
-        coinAmount.setText("200");
+        colorsChoiceBox.getItems().addAll(rouletteColors);
+        coinAmount.setText(String.valueOf(coins));
     }
 }

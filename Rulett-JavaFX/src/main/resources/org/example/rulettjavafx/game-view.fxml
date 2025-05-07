@@ -107,7 +107,7 @@
                </GridPane.margin>
             </Label>
             <ChoiceBox fx:id="numberChoiceBox" prefWidth="150.0" GridPane.rowIndex="1" />
-            <ChoiceBox fx:id="colorChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ChoiceBox fx:id="colorsChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Text fx:id="resultText" layoutX="578.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
