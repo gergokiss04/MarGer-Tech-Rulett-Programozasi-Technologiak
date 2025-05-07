@@ -72,11 +72,12 @@
          <children>
             <Circle fx:id="tableBackground" fill="#00c735" radius="150.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fx:id="wheel" fill="#323232" radius="120.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
-            <ImageView fitHeight="264.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../roulettewheel.png" />
-               </image>
-            </ImageView>
+             <ImageView fitHeight="264.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true">
+                 <image>
+                     <Image url="@../../../Image/roulettewheel.png" />
+                 </image>
+             </ImageView>
+
          </children>
       </StackPane>
       <GridPane layoutX="50.0" layoutY="460.0" prefWidth="200.0">
