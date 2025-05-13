@@ -1,12 +1,16 @@
 package org.example.rulettjavafx;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.text.Text;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Random;
 
@@ -60,10 +64,42 @@ public class GameController implements Initializable {
             return;
         }
 
+        int betAmount = 10;
+
+        if (coins < betAmount) {
+            Alert gameOverAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            gameOverAlert.setTitle("Vége a játéknak");
+            gameOverAlert.setHeaderText("Elfogytak az érméid!");
+            gameOverAlert.setContentText("Mit szeretnél tenni?");
+
+            ButtonType newGameButton = new ButtonType("Új játék");
+            ButtonType logoutButton = new ButtonType("Kijelentkezés");
+            ButtonType cancelButton = new ButtonType("Mégse", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+            gameOverAlert.getButtonTypes().setAll(newGameButton, logoutButton, cancelButton);
+
+            Optional<ButtonType> result = gameOverAlert.showAndWait();
+
+            if (result.isPresent() && result.get() == newGameButton) {
+                // Érmék visszaállítása és UI frissítése
+                coins = 200;
+                coinAmount.setText(String.valueOf(coins));
+                resultText.setText("Új játék indult.");
+            } else if (result.isPresent() && result.get() == logoutButton) {
+                // Alkalmazás bezárása vagy kijelentkezés logika
+                Platform.exit(); // Vagy navigálj vissza a bejelentkező képernyőre
+            }
+
+            return;
+        }
+
+
+        coins -= betAmount;
+
         Integer guessedNumber = Integer.valueOf(numberChoiceBox.getValue());
         String guessedColor = colorsChoiceBox.getValue();
 
-        int drawnIndex = random.nextInt(0, 39);
+        int drawnIndex = random.nextInt(rouletteNumbers.length);
         int drawnNumber = rouletteNumbers[drawnIndex];
         String drawnColor;
 
@@ -77,13 +113,17 @@ public class GameController implements Initializable {
 
         if (guessedNumber.equals(drawnNumber) && guessedColor.equals(drawnColor)) {
             resultText.setText("Gratulálunk! Nyertél!\n Kisorsolt szám: " + drawnNumber);
+            coins += (int)(betAmount * correctNumberAndColorBet);
         } else if (guessedColor.equals(drawnColor)) {
             resultText.setText("Gratulálunk! Nyertél!\n Kisorsolt szám: " + drawnNumber);
+            coins += (int)(betAmount * correctColorBet);
         } else if (guessedNumber.equals(drawnNumber)) {
             resultText.setText("Gratulálunk! Nyertél!\n Kisorsolt szám: " + drawnNumber);
+            coins += (int)(betAmount * correctNumberBet);
         } else {
             resultText.setText("Sajnálom, nem nyertél.\n Kisorsolt szám: " + drawnNumber);
         }
+        coinAmount.setText(String.valueOf(coins));
     }
 
     private int coins = 200;
