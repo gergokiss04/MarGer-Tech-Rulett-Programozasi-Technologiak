@@ -149,32 +149,4 @@ public class GameController implements Initializable {
         this.userId = userId;
         System.out.println("User ID set to: " + userId); // Debugging output
     }
-
-    private void ensureGameRowExists(int userId) {
-        try (Connection conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/rulett", "root", "")) {
-
-            // Check if the user_id already exists in the game table
-            String checkSql = "SELECT * FROM game WHERE user_id = ?";
-            PreparedStatement checkStmt = conn.prepareStatement(checkSql);
-            checkStmt.setInt(1, userId);
-            ResultSet rs = checkStmt.executeQuery();
-
-            if (!rs.next()) {
-                // If no row exists, insert a new row
-                String insertSql = "INSERT INTO game (user_id, coin_value, chosen_color, result_color, won) " +
-                        "VALUES (?, 200, 'white', 'white', 0)";
-                PreparedStatement insertStmt = conn.prepareStatement(insertSql);
-                insertStmt.setInt(1, userId);
-                insertStmt.executeUpdate();
-                System.out.println("Inserted new row for user_id: " + userId);
-            } else {
-                System.out.println("Row already exists for user_id: " + userId);
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error ensuring game row exists: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
 }

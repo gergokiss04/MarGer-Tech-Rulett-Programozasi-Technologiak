@@ -5,11 +5,15 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnector {
-    private static final String URL = "jdbc:mysql://localhost:3306/rulett";
-    private static final String USER = "root";
-    private static final String PASSWORD = "";
-
     public static Connection connect() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PASSWORD);
+        System.out.println("Connecting to database...");
+        System.out.println("URL: " + DatabaseConfig.getUrl());
+        System.out.println("User: " + DatabaseConfig.getUser());
+
+        return DriverManager.getConnection(
+                DatabaseConfig.getUrl(),
+                DatabaseConfig.getUser(),
+                DatabaseConfig.getPassword()
+        );
     }
 }
