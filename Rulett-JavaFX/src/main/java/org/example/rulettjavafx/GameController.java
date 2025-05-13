@@ -137,6 +137,7 @@ public class GameController implements Initializable {
             resultText.setText("Gratulálunk! Nyertél!\n Kisorsolt szám: " + drawnNumber);
         } else {
             resultText.setText("Sajnálom, nem nyertél.\n Kisorsolt szám: " + drawnNumber);
+            coins -= betAmount;
         }
         DatabaseHelper.updateUserCoins(userId, coins);
         coinAmount.setText(String.valueOf(coins));
