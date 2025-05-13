@@ -15,6 +15,10 @@ import java.util.ResourceBundle;
 import java.util.Random;
 
 public class GameController implements Initializable {
+    private int userId;
+    private int coins = 200;
+    private final Random random = new Random();
+
     Integer[] rouletteNumbers = new Integer[]{0, 32, 15, 19, 4, 21,
                                                 2, 25, 17, 34, 6, 27,
                                                 13, 36, 11, 30, 8, 23,
@@ -38,7 +42,7 @@ public class GameController implements Initializable {
             "20", "14", "31", "9", "22", "18",
             "29", "7", "28", "12", "35", "3", "26"};
 
-    private final Random random = new Random();
+
 
     @FXML
     private ChoiceBox<String> colorsChoiceBox;
@@ -85,6 +89,7 @@ public class GameController implements Initializable {
                 coins = 200;
                 coinAmount.setText(String.valueOf(coins));
                 resultText.setText("Új játék indult.");
+                DatabaseHelper.updateUserCoins(userId, coins);
             } else if (result.isPresent() && result.get() == logoutButton) {
                 // Alkalmazás bezárása vagy kijelentkezés logika
                 Platform.exit(); // Vagy navigálj vissza a bejelentkező képernyőre
@@ -123,10 +128,11 @@ public class GameController implements Initializable {
         } else {
             resultText.setText("Sajnálom, nem nyertél.\n Kisorsolt szám: " + drawnNumber);
         }
+        DatabaseHelper.updateUserCoins(userId, coins);
         coinAmount.setText(String.valueOf(coins));
     }
 
-    private int coins = 200;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
