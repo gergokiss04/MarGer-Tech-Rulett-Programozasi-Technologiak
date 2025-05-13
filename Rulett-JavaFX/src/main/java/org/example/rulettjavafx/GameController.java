@@ -66,6 +66,15 @@ public class GameController implements Initializable {
         boolean correctNumber = guessedNumber == drawnNumber;
         boolean correctColor = guessedColor.equals(drawnColor);
 
+        if (correctNumber && correctColor) {
+            rouletteGame.setBettingStrategy(new BettingStrategy.CombinedBettingStrategy());
+        } else if (correctNumber) {
+            rouletteGame.setBettingStrategy(new BettingStrategy.NumberBettingStrategy());
+        } else if (correctColor) {
+            rouletteGame.setBettingStrategy(new BettingStrategy.ColorBettingStrategy());
+        }
+
+        // Calculate winnings using the selected strategy
         double winnings = rouletteGame.calculateWinnings(betAmount, correctNumber, correctColor);
         coins += winnings;
 
@@ -75,7 +84,7 @@ public class GameController implements Initializable {
             resultText.setText("Sajnálom, nem nyertél.\n Kisorsolt szám: " + drawnNumber);
         }
 
-        databaseHelper.updateUserCoins(userId,coins);
+        databaseHelper.updateUserCoins(userId, coins);
         coinAmount.setText(String.valueOf(coins));
     }
 
