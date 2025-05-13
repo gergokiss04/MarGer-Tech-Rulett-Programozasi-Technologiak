@@ -30,7 +30,7 @@ public class RouletteGame {
         String[] rouletteColors = {"PIROS", "FEKETE", "ZÖLD"};
         if (index == 0) {
             return rouletteColors[2];
-        } else if (index % 2 == 0) {
+        } else if (index % 2 != 0) {
             return rouletteColors[0];
         } else {
             return rouletteColors[1];
