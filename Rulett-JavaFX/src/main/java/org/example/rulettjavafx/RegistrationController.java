@@ -4,10 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-
 public class RegistrationController {
 
     @FXML
@@ -15,6 +11,8 @@ public class RegistrationController {
 
     @FXML
     private TextField passwordField;
+
+    private final UserRepository userRepository = new UserRepository();
 
     @FXML
     private void onRegisterButtonClick() {
@@ -27,24 +25,19 @@ public class RegistrationController {
         }
 
         try {
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/rulett", "root", "");
+            if (userRepository.usernameExists(username)) {
+                showAlert("Hiba", "A felhasználónév már létezik!", Alert.AlertType.WARNING);
+                return;
+            }
 
-            String sql = "INSERT INTO User (username, password) VALUES (?, ?)";
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, username);
-            stmt.setString(2, password); //Még nincs Hashelve a jelszó!
-
-            stmt.executeUpdate();
-            conn.close();
-
+            userRepository.insertUser(username, password);
             showAlert("Siker", "Sikeres regisztráció!", Alert.AlertType.INFORMATION);
+
             usernameField.clear();
             passwordField.clear();
 
         } catch (Exception e) {
             showAlert("Hiba", "Nem sikerült regisztrálni: " + e.getMessage(), Alert.AlertType.ERROR);
-            //e.printStackTrace();
         }
     }
 
