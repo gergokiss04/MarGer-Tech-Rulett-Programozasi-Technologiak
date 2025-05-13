@@ -63,7 +63,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-       <Button fx:id="spinButton" onAction="#handleSpin" mnemonicParsing="false" style="-fx-background-color: crimson;" text="Pörgetés" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
+       <Button fx:id="spinButton" mnemonicParsing="false" onAction="#handleSpin" style="-fx-background-color: crimson;" text="Pörgetés" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
        <font>
             <Font size="14.0" />
          </font>
@@ -110,7 +110,7 @@
             <ChoiceBox fx:id="colorsChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Text fx:id="resultText" layoutX="578.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+      <Text fx:id="resultText" layoutX="508.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
          <font>
             <Font size="14.0" />
          </font>

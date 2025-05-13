@@ -2,6 +2,7 @@ package org.example.rulettjavafx;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.text.Text;
 
@@ -46,8 +47,22 @@ public class GameController implements Initializable {
 
     @FXML
     private void handleSpin(){
+
+        String numberValue = numberChoiceBox.getValue();
+        String colorValue = colorsChoiceBox.getValue();
+
+        if (numberValue == null || colorValue == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Hiányzó adatok");
+            alert.setHeaderText(null);
+            alert.setContentText("Kérlek válassz ki egy számot és egy színt a pörgetéshez!");
+            alert.showAndWait();
+            return;
+        }
+
         Integer guessedNumber = Integer.valueOf(numberChoiceBox.getValue());
         String guessedColor = colorsChoiceBox.getValue();
+
         int drawnIndex = random.nextInt(0, 39);
         int drawnNumber = rouletteNumbers[drawnIndex];
         String drawnColor;
@@ -61,13 +76,13 @@ public class GameController implements Initializable {
         }
 
         if (guessedNumber.equals(drawnNumber) && guessedColor.equals(drawnColor)) {
-            resultText.setText("Gratulálunk! Nyertél! Kisorsolt szám: " + drawnNumber);
+            resultText.setText("Gratulálunk! Nyertél!\n Kisorsolt szám: " + drawnNumber);
         } else if (guessedColor.equals(drawnColor)) {
-            resultText.setText("Gratulálunk! Nyertél! Kisorsolt szám: " + drawnNumber);
+            resultText.setText("Gratulálunk! Nyertél!\n Kisorsolt szám: " + drawnNumber);
         } else if (guessedNumber.equals(drawnNumber)) {
-            resultText.setText("Gratulálunk! Nyertél! Kisorsolt szám: " + drawnNumber);
+            resultText.setText("Gratulálunk! Nyertél!\n Kisorsolt szám: " + drawnNumber);
         } else {
-            resultText.setText("Sajnálom, nem nyertél. Kisorsolt szám: " + drawnNumber);
+            resultText.setText("Sajnálom, nem nyertél.\n Kisorsolt szám: " + drawnNumber);
         }
     }
 
