@@ -99,9 +99,7 @@ public class GameController implements Initializable {
 
             return;
         }
-
-
-        coins -= betAmount;
+        
 
         numberValue = numberChoiceBox.getValue();
         colorValue = colorsChoiceBox.getValue();
@@ -128,13 +126,13 @@ public class GameController implements Initializable {
 
         if (guessedNumber.equals(drawnNumber) && guessedColor.equals(drawnColor)) {
             coins += (int)(betAmount * correctNumberAndColorBet);
-            resultText.setText("Gratulálunk! Nyertél!\n Kisorsolt szám: " + drawnNumber);
+            resultText.setText("Gratulálunk!\n Mindent eltaláltál!\n Kisorsolt szám: " + drawnNumber);
         } else if (guessedNumber.equals(drawnNumber)) {
             coins += (int)(betAmount * correctNumberBet);
-            resultText.setText("Gratulálunk! Nyertél!\n Kisorsolt szám: " + drawnNumber);
+            resultText.setText("Gratulálunk!\n Eltaláltad a számot!\n Kisorsolt szám: " + drawnNumber);
         } else if (guessedColor.equals(drawnColor)) {
             coins += (int)(betAmount * correctColorBet);
-            resultText.setText("Gratulálunk! Nyertél!\n Kisorsolt szám: " + drawnNumber);
+            resultText.setText("Gratulálunk!\n Eltaláltad a színt!\n Kisorsolt szám: " + drawnNumber);
         } else {
             resultText.setText("Sajnálom, nem nyertél.\n Kisorsolt szám: " + drawnNumber);
             coins -= betAmount;
