@@ -120,7 +120,7 @@ public class GameController implements Initializable {
 
         if (drawnIndex == 0) {
             drawnColor = rouletteColors[2];
-        } else if ((drawnIndex % 2 == 0)) {
+        } else if ((drawnIndex % 2 != 0)) {
             drawnColor = rouletteColors[0];
         } else {
             drawnColor = rouletteColors[1];
@@ -129,11 +129,11 @@ public class GameController implements Initializable {
         if (guessedNumber.equals(drawnNumber) && guessedColor.equals(drawnColor)) {
             coins += (int)(betAmount * correctNumberAndColorBet);
             resultText.setText("Gratulálunk! Nyertél!\n Kisorsolt szám: " + drawnNumber);
-        } else if (guessedColor.equals(drawnColor)) {
-            coins += (int)(betAmount * correctColorBet);
-            resultText.setText("Gratulálunk! Nyertél!\n Kisorsolt szám: " + drawnNumber);
         } else if (guessedNumber.equals(drawnNumber)) {
             coins += (int)(betAmount * correctNumberBet);
+            resultText.setText("Gratulálunk! Nyertél!\n Kisorsolt szám: " + drawnNumber);
+        } else if (guessedColor.equals(drawnColor)) {
+            coins += (int)(betAmount * correctColorBet);
             resultText.setText("Gratulálunk! Nyertél!\n Kisorsolt szám: " + drawnNumber);
         } else {
             resultText.setText("Sajnálom, nem nyertél.\n Kisorsolt szám: " + drawnNumber);
