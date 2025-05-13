@@ -18,7 +18,7 @@ public class RouletteGame {
 
     public int spinRoulette() {
         Random random = new Random();
-        return random.nextInt(37); // Simulates spinning the roulette wheel
+        return random.nextInt(37); 
     }
 
     public int getDrawnNumber(int index) {

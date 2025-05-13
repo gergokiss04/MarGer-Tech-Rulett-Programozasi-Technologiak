@@ -74,7 +74,7 @@ public class GameController implements Initializable {
             rouletteGame.setBettingStrategy(new BettingStrategy.ColorBettingStrategy());
         }
 
-        // Calculate winnings using the selected strategy
+
         double winnings = rouletteGame.calculateWinnings(betAmount, correctNumber, correctColor);
         coins += winnings;
 
@@ -129,6 +129,6 @@ public class GameController implements Initializable {
 
     public void setUserId(int userId) {
         this.userId = userId;
-        System.out.println("User ID set to: " + userId); // Debugging output
+        System.out.println("User ID set to: " + userId);
     }
 }

@@ -1,9 +1,7 @@
 package org.example.rulettjavafx;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-
 import java.io.IOException;
 
 public class HelloController {
@@ -15,7 +13,6 @@ public class HelloController {
         welcomeText.setText("Köszöntjük a Roulett birodalomban!");
     }
 
-    // Regisztrációs gomb kattintás eseménykezelője
     @FXML
     private void onRegisterButtonClick() {
         try {
@@ -26,7 +23,6 @@ public class HelloController {
         }
     }
 
-    // Bejelentkezési gomb kattintás eseménykezelője
     @FXML
     private void onLoginButtonClick() {
         try {
