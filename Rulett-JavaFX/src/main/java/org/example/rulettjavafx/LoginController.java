@@ -33,7 +33,7 @@ public class LoginController {
             Connection conn = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/rulett", "root", "");
 
-            String sql = "SELECT password FROM User WHERE username = ?";
+            String sql = "SELECT id, password FROM User WHERE username = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, username);
 
@@ -41,8 +41,9 @@ public class LoginController {
             if (rs.next()) {
                 String storedPassword = rs.getString("password");
                 if (password.equals(storedPassword)) {
+                    int userId = rs.getInt("id");
                     showAlert("Siker", "Sikeres bejelentkezés!", Alert.AlertType.INFORMATION);
-                    openGameView();
+                    openGameView(userId);
                 } else {
                     showAlert("Hiba", "Hibás felhasználónév vagy jelszó!", Alert.AlertType.ERROR);
                 }
@@ -57,11 +58,13 @@ public class LoginController {
             //e.printStackTrace();
         }
     }
-
-    private void openGameView() {
+    private void openGameView(int userId) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("game-view.fxml"));
             Scene gameViewScene = new Scene(loader.load());
+            GameController controller = loader.getController();
+            controller.setUserId(userId);
+
             Stage gameViewStage = new Stage();
             gameViewStage.setTitle("Játék");
             gameViewStage.setScene(gameViewScene);
@@ -72,6 +75,33 @@ public class LoginController {
 
         } catch (IOException e) {
             showAlert("Hiba", "Nem sikerült megnyitni a játékot: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
+    private void ensureGameRowExists(int userId) {
+        try (Connection conn = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/rulett", "root", "")) {
+
+
+            String checkSql = "SELECT * FROM game WHERE user_id = ?";
+            PreparedStatement checkStmt = conn.prepareStatement(checkSql);
+            checkStmt.setInt(1, userId);
+            ResultSet rs = checkStmt.executeQuery();
+
+            if (!rs.next()) {
+
+                String insertSql = "INSERT INTO game (user_id, coin_value, chosen_color, result_color, won) " +
+                        "VALUES (?, 200, 'white', 'white', 0)";
+                PreparedStatement insertStmt = conn.prepareStatement(insertSql);
+                insertStmt.setInt(1, userId);
+                insertStmt.executeUpdate();
+                System.out.println("Inserted new row for user_id: " + userId);
+            } else {
+                System.out.println("Row already exists for user_id: " + userId);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error ensuring game row exists: " + e.getMessage());
+            e.printStackTrace();
         }
     }
     private void showAlert(String title, String msg, Alert.AlertType type) {
