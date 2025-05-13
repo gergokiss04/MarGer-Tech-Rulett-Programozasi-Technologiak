@@ -44,7 +44,7 @@ public class GameController implements Initializable {
     @FXML
     private Text resultText;
 
-
+    @FXML
     private void handleSpin(){
         Integer guessedNumber = Integer.valueOf(numberChoiceBox.getValue());
         String guessedColor = colorsChoiceBox.getValue();
