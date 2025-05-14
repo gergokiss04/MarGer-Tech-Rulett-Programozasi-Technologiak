@@ -25,4 +25,21 @@ public class BettingStrategyTest {
         winnings = strategy.calculateWinnings(100, false, false);
         assertEquals(-100.0, winnings, "Winnings should be -100.0 for an incorrect color bet.");
     }
+
+    @Test
+    void testCombinedBettingStrategy() {
+        BettingStrategy strategy = new BettingStrategy.CombinedBettingStrategy();
+
+        // Teszt: helyes számra és színre fogadás
+        double winnings = strategy.calculateWinnings(100, true, true);
+        assertEquals(275.0, winnings, "Winnings should be 275.0 for a correct combined bet.");
+
+        // Teszt: helyes szám, de helytelen szín
+        winnings = strategy.calculateWinnings(100, true, false);
+        assertEquals(-100.0, winnings, "Winnings should be -100.0 for a correct number but incorrect color.");
+
+        // Teszt: helytelen szám és szín
+        winnings = strategy.calculateWinnings(100, false, false);
+        assertEquals(-100.0, winnings, "Winnings should be -100.0 for an incorrect number and color.");
+    }
 }
