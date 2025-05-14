@@ -34,4 +34,6 @@ class RouletteGameTest {
             assertTrue(number >= 0 && number <= 36);
         }
     }
+
+
 }
