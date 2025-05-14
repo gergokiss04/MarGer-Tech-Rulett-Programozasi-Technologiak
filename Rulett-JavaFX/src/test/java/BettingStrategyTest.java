@@ -14,5 +14,15 @@ public class BettingStrategyTest {
         winnings = strategy.calculateWinnings(100, false, false);
         assertEquals(-100.0, winnings, "Winnings should be -100.0 for an incorrect number bet.");
     }
-    
+
+    @Test
+    void testColorBettingStrategy() {
+        BettingStrategy strategy = new BettingStrategy.ColorBettingStrategy();
+
+        double winnings = strategy.calculateWinnings(100, false, true);
+        assertEquals(150.0, winnings, "Winnings should be 150.0 for a correct color bet.");
+
+        winnings = strategy.calculateWinnings(100, false, false);
+        assertEquals(-100.0, winnings, "Winnings should be -100.0 for an incorrect color bet.");
+    }
 }
